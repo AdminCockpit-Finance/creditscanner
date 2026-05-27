@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --background: #020617;
+  --foreground: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.10), transparent 34rem),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 30rem),
+    #020617;
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/**
+ * Champ de formulaire commun.
+ */
+.input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(51 65 85);
+  background: rgb(15 23 42);
+  padding: 0.75rem 0.9rem;
+  color: white;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.input::placeholder {
+  color: rgb(100 116 139);
+}
+
+.input:focus {
+  border-color: rgb(34 211 238);
+  box-shadow: 0 0 0 1px rgb(34 211 238);
+  background: rgb(15 23 42);
+}
+
+/**
+ * Améliore le rendu des listes et textes longs.
+ */
+p,
+li {
+  text-wrap: pretty;
+}
+
+/**
+ * Impression future du rapport.
+ * On prépare déjà le terrain pour un export propre.
+ */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:block {
+    display: block !important;
+  }
+}
